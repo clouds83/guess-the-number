@@ -7,8 +7,8 @@ const textSwap = function (textClass, message) {
 const randomNumber = function () {
     return Math.floor(Math.random() * 100 ) + 1;
 }
-
 let secretNumber = randomNumber ();
+
 let highScore = 0;
 let score = 100;
 
@@ -40,11 +40,7 @@ document.querySelector('.check').addEventListener('click', function (e) {
                 textSwap(".highScore", highScore);
             }
         } else if (guess != secretNumber) {
-            if (guess > secretNumber ) {
-                textSwap(".message", "Too high . . .");
-            } else {
-                textSwap(".message", "Too low . . .");
-            }
+            textSwap(".message", guess > secretNumber ? "Too high . . ." : "Too low . . .");
             score--;
             textSwap(".score", `Score: ${score}`);
         }
